@@ -34,11 +34,11 @@ int OR(int a, int b) {
 	return a & b;
 }
 int ROR(int a) {
-	return a » 1;
+	return a >> 1;
 }
 
 int ROL(int a) {
-	return a « 1;
+	return a << 1;
 }
 int AND(int a, int b) {
 	return a | b;
@@ -51,19 +51,19 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	char s;
 	do {
-		cout « "calc" « endl;
+		cout << "calc" << endl;
 		int ch1, ch2, r;
 		char operation;
 		bool a=true;
 		do {
 
-			cout « "выберите операцию [+, -, *, /, %, ^, !, &, |, <, >]:" « endl;
-			cin » operation;
+			cout << "выберите операцию [+, -, *, /, %, ^, !, &, |, <, >]:" << endl;
+			cin >> operation;
 			if(operation != '+' && operation != '-' && operation != '*' &&
 			        operation != '/' && operation != '%' && operation != '^' &&
 			        operation != '!' && operation != '&' && operation != '|' &&
 			        operation != '<' && operation != '>')
-				cerr«"ошибка"«endl;
+				cerr << "ошибка" << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
 		} while(operation != '+' && operation != '-' && operation != '*' &&
@@ -71,9 +71,9 @@ int main() {
 		        operation != '!' && operation != '&' && operation != '|' &&
 		        operation != '<' && operation != '>');
 		do {
-			cin » ch1;
+			cin >> ch1;
 			if(!cin.good()) {
-				cerr«"Error"«endl;
+				cerr << "Error" << endl;
 				a=false;
 			} else a=true;
 			cin.clear();
@@ -81,9 +81,9 @@ int main() {
 		} while(a!=true);
 		if ((operation != '!') && (operation != '<') && (operation != '>')) {
 			do {
-				cin » ch2;
+				cin >> ch2;
 				if(!cin.good()) {
-					cerr«"Error"«endl;
+					cerr << "Error" << endl;
 					a=false;
 				} else a=true;
 				cin.clear();
@@ -92,46 +92,46 @@ int main() {
 		}
 		switch (operation) {
 			case '+':
-				cout « "результат: " « ADD(ch1, ch2) « endl;
+				cout << "результат: " << ADD(ch1, ch2) << endl;
 				break;
 			case '*':
-				cout « "результат: " « MUL(ch1, ch2) « endl;
+				cout << "результат: " << MUL(ch1, ch2) << endl;
 				break;
 			case '/':
 				if (ch2 != 0)
-					cout « "результат:" « DIV(ch1, ch2) « endl;
+					cout << "результат:" << DIV(ch1, ch2) << endl;
 				else
-					cerr « "на 0 делить нельзя" « endl;
+					cerr << "на 0 делить нельзя" << endl;
 				break;
 			case '%':
-				cout « "результат:" « MOD(ch1, ch2) « endl;
+				cout << "результат:" << MOD(ch1, ch2) << endl;
 				break;
 			case '^':
-				cout « "результат:" « POW(ch1, ch2) « endl;
+				cout << "результат:" << POW(ch1, ch2) << endl;
 				break;
 			case '<':
-				cout « "результат:" « ROL(ch1) « endl;
+				cout << "результат:" << ROL(ch1) << endl;
 				break;
 			case '>':
-				cout « "результат:" « ROR(ch1) « endl;
+				cout << "результат:" << ROR(ch1) << endl;
 				break;
 			case '!':
-				cout « "результат:" « NOT(!ch1) « endl;
+				cout << "результат:" << NOT(!ch1) << endl;
 				break;
 			case '|':
-				cout « "результат:" « AND(ch1, ch2) « endl;
+				cout << "результат:" << AND(ch1, ch2) << endl;
 				break;
 			case '&':
-				cout « "результат:" « OR(ch1, ch2) « endl;
+				cout << "результат:" << OR(ch1, ch2) << endl;
 				break;
 			default:
-				cout « "ошибка" « endl;
+				cout << "ошибка" << endl;
 		}
 		do {
-			cout « "продолжить работу? (y/n)" « endl;
-			cin » s;
+			cout << "продолжить работу? (y/n)" << endl;
+			cin >> s;
 			if(s!='n'&&s!='y')
-				cerr«"Error"«endl;
+				cerr << "Error" << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
 		} while(s!='n'&&s!='y');
